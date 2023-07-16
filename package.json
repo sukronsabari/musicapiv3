@@ -1,0 +1,40 @@
+{
+  "name": "music-api-v1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "nodemon ./src/server.js",
+    "start-prod": "NODE_ENV=production node ./src/server.js",
+    "migrate": "node-pg-migrate",
+    "lint": "npx eslint ./src",
+    "process-manager": "pm2 start npm --name 'music-api-v1' -- run 'start-prod'",
+    "test-api": "newman run ./postman/MusicAPIV2Test.json --environment ./postman/MusicAPIV2_env.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.1",
+    "@hapi/inert": "^7.1.0",
+    "@hapi/jwt": "^3.2.0",
+    "amqplib": "^0.10.3",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "joi": "^17.9.1",
+    "nanoid": "^3.3.6",
+    "node-pg-migrate": "^6.2.2",
+    "nodemon": "^2.0.22",
+    "pg": "^8.10.0",
+    "redis": "^4.6.6"
+  },
+  "devDependencies": {
+    "@hapi/eslint-plugin": "^6.0.0",
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.7"
+  }
+}
